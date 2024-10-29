@@ -4,7 +4,7 @@ import RestaurantContainer from "./RestaurantContainer";
 
 const Body = () => {
 
-    let [listOfResturant,setListOfRestaurant]=useState([{
+    const [listOfResturant,setListOfRestaurant]=useState([{
  
         "id": 1,
         "name": "Classic Margherita Pizza",
@@ -40,10 +40,10 @@ const Body = () => {
                 <input type="text" placeholder="Search..." className="search-input" />
                 <button className="search-button"
                 onClick={()=>{
-                    listOfResturant=listOfResturant.filter((item)=>{
+                    const filteredList=listOfResturant.filter((item)=>{
                         return item.rating>5.5;
                     })
-                    setListOfRestaurant(listOfResturant)
+                    setListOfRestaurant(filteredList)
                 }}
                 >filter</button>
             </div>
