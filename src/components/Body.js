@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantContainer from "./RestaurantContainer";
 import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 
 const Body = () => {
 
-    const [listOfResturant,setListOfRestaurant]=useState(resList.recipes)
+    const [listOfResturant,setListOfRestaurant]=useState([])
+
+useEffect(()=>{
+    fetchData();
+},[])
+
+const fetchData=async()=>{
+    const data=await fetch("https://dummyjson.com/recipes");
+    const json=await data.json();
+    setListOfRestaurant(json.recipes);
+}
+
+if(listOfResturant.length===0){
+    return <Shimmer />;
+}
 
     return (
         <div className="body">
@@ -14,7 +29,7 @@ const Body = () => {
                 <button className="search-button"
                 onClick={()=>{
                     const filteredList=listOfResturant.filter((item)=>{
-                        return item.rating===4.3;
+                        return item.rating>4.5;
                     })
                     setListOfRestaurant(filteredList)
                 }}
