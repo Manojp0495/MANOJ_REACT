@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #eaeaea; /* Background for the whole page */
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px; /* Space between cards */
+    padding: 20px;
+    width: 80%; /* Container width */
+  }
+  
+  .card {
+    background-color: #f0ece2; /* Card background color */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: 200px; /* Fixed height for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 100%);
+    animation: shimmer-animation 1.5s infinite;
+  }
+  
+  @keyframes shimmer-animation {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }

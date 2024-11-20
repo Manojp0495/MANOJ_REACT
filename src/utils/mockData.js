@@ -1,4 +1,4 @@
-const resObj=
+const resList=
 
 {
   "recipes": [
@@ -1246,4 +1246,4 @@ const resObj=
   "limit": 30
 }
 
-export default resObj;
+export default resList;
